@@ -1,0 +1,22 @@
+user will be greeted with login page
+-requires authentication
+-take from previous activity
+
+after user logs in, go to homepage "/"
+-html routes
+-rip off from previous activity
+
+user will have input box to fill out and make a 'POST'
+-use a POST route
+-save to global database
+
+user will have a page that collects post from database and displays to user
+-get route
+-'res.render' on page
+
+user needs model to define how user looks
+-name
+-id
+-email
+-password
+-array of post
