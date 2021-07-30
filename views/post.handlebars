@@ -1,10 +1,13 @@
 <div class="text-center">
-  <h2>{{name}}</h2>
-  <p>{{{get_emoji}}}</p>
-  <p>{{description}}</p>
-  <p>{{comment}}</p>
+  <input type='hidden' name='postid' value='{{id}}'/>
+  <input id='edit-title'>{{name}}</input>
+  
+  <input id= 'edit-body'>{{description}}</input>
+  <input id='comment-name'>{{comment}}</input>
   <p>Created by {{user.name}} on {{format_date date_created}}</p>
   <p>
     <button class="btn btn-primary edit-post">edit post</button>
   </p>
 </div>
+
+<script src="../js/editPost.js"></script>

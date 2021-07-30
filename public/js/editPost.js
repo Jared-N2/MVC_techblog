@@ -1,22 +1,36 @@
+const postid = document.querySelector('input[name="postid"]').value
+
 const editButtonHandler = async (event) => {
-    if (event.target.hasAttribute('data-id')) {
-        const id = event.target.getAttribute('data-id');
+    console.log(postid)
+    event.preventDefault();
 
-        const response = await fetch(`/api/posts/${id}`, {
-            method: 'PUT',
+    const title = document.querySelector('#edit-title').value.trim();
+    const body = document.querySelector('#edit-body').value.trim();
+    
 
-        });
 
-        if (response.ok) {
-            document.location.replace('/profile');
-        } else {
-            alert('Failed to edit post');
+    const id = event.target.getAttribute('data-id');
+
+    await fetch(`/api/posts/${postid}`, {
+        method: 'PUT',
+        body: JSON.stringify({
+           title,
+           body
+        }),
+        headers: {
+            'Content-Type': 'application/js'
         }
-    }
+    });
+
+    // if (response.ok) {
+    //     document.location.replace('/profile');
+    // } else {
+    //     alert('Failed to edit post');
+    // }
+
 };
 
 // document.querySelector('.new-post-form');
 // document.addEventListener('submit', newFormHandler);
 
-document.querySelector('.edit-post');
-document.addEventListener('click', editButtonHandler);
+document.querySelector('.edit-post').addEventListener('click', editButtonHandler);
